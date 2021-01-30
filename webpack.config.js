@@ -37,18 +37,8 @@ const config = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      inject: false,
-      templateContent: ({ htmlWebpackPlugin }) => `
-        <html>
-          <head>
-            ${htmlWebpackPlugin.tags.headTags}
-          </head>
-          <body>
-            <h1 class="text-primary bg-danger">Hello World</h1>
-            ${htmlWebpackPlugin.tags.bodyTags}
-          </body>
-        </html>
-      `,
+      // inject: false,
+      template: "src/index.html",
     }),
   ],
 };
