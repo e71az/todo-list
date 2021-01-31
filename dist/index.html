@@ -23,7 +23,11 @@
               </button>
 
               <div class="form-popup d-none" id="myForm">
-                <form class="form-container" action="#" novalidate>
+                <form
+                  class="form-container form-add-project"
+                  action="#"
+                  novalidate
+                >
                   <h1>Create a new project</h1>
                   <label for="title">Project Title</label>
                   <input
@@ -33,12 +37,14 @@
                     required
                   />
 
-                  <button type="submit" class="btn btn-success">Create</button>
                   <button
-                    type="submit"
-                    class="btn btn-danger"
-                    onclick="closeForm()"
+                    type="button"
+                    class="btn btn-success"
+                    onclick="addProject()"
                   >
+                    Create
+                  </button>
+                  <button class="btn btn-danger" onclick="closeForm()">
                     Cancel
                   </button>
                 </form>
