@@ -8,7 +8,6 @@ function openForm(event) {
 function closeForm() {
   $("#myForm").classList.add("d-none");
   $(".form-container").reset();
-  // return console.log(event.id);
 }
 
 export { openForm, closeForm };

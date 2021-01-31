@@ -5,10 +5,6 @@ class ToDo {
     this.dueDate = dueDate;
     this.priority = priority;
   }
-
-  // addTodo() {
-  //   this.todoArray.forEach((todo, index) => addTodoItemDom(todo, index));
-  // }
 }
 
 export default ToDo;
