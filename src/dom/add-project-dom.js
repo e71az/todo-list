@@ -1,7 +1,7 @@
 import { $ } from "../components/utilities";
 
-const addProjectToDom = (Project = {}, index = Number()) => {
-  let newProject = `<li id='project-${index}'>${Project.title}</li>`;
+const addProjectToDom = (Project = {}) => {
+  let newProject = `<li id='project-${Project.id}'>${Project.title}</li>`;
 
   $(".project-info-list").innerHTML += newProject;
 };
