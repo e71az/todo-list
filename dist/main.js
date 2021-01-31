@@ -113,7 +113,7 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"openForm\": () => (/* binding */ openForm),\n/* harmony export */   \"closeForm\": () => (/* binding */ closeForm)\n/* harmony export */ });\n/* harmony import */ var _utilities__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utilities */ \"./src/components/utilities.js\");\n\r\n\r\nfunction openForm(event) {\r\n  (0,_utilities__WEBPACK_IMPORTED_MODULE_0__.$)(\"#myForm\").classList.remove(\"d-none\");\r\n  return console.log(event.id);\r\n}\r\n\r\nfunction closeForm() {\r\n  (0,_utilities__WEBPACK_IMPORTED_MODULE_0__.$)(\"#myForm\").classList.add(\"d-none\");\r\n  (0,_utilities__WEBPACK_IMPORTED_MODULE_0__.$)(\".form-container\").reset();\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack://todo-list/./src/components/form-popup.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"openForm\": () => (/* binding */ openForm),\n/* harmony export */   \"closeForm\": () => (/* binding */ closeForm)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nfunction openForm(event) {\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#myForm\").removeClass(\"d-none\");\r\n  return console.log(event.id);\r\n}\r\n\r\nfunction closeForm() {\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#myForm\").addClass(\"d-none\");\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".form-container\").trigger(\"reset\");\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack://todo-list/./src/components/form-popup.js?");
 
 /***/ }),
 
@@ -125,17 +125,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Project {\r\n  constructor(id, title) {\r\n    this.id = id;\r\n    this.title = title;\r\n    this.todoArray = [];\r\n  }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Project);\r\n\n\n//# sourceURL=webpack://todo-list/./src/components/project.js?");
-
-/***/ }),
-
-/***/ "./src/components/utilities.js":
-/*!*************************************!*\
-  !*** ./src/components/utilities.js ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"$\": () => (/* binding */ $),\n/* harmony export */   \"$$\": () => (/* binding */ $$)\n/* harmony export */ });\nconst $ = (elementSelector) => document.querySelector(elementSelector);\nconst $$ = (elementSelector) => document.querySelectorAll(elementSelector);\n\n\n\n\n//# sourceURL=webpack://todo-list/./src/components/utilities.js?");
 
 /***/ }),
 
