@@ -106,6 +106,50 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 
 /***/ }),
 
+/***/ "./src/components/form-popup.js":
+/*!**************************************!*\
+  !*** ./src/components/form-popup.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"openForm\": () => (/* binding */ openForm),\n/* harmony export */   \"closeForm\": () => (/* binding */ closeForm)\n/* harmony export */ });\n/* harmony import */ var _utilities__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utilities */ \"./src/components/utilities.js\");\n\n\nfunction openForm(event) {\n  (0,_utilities__WEBPACK_IMPORTED_MODULE_0__.$)(\"#myForm\").style.display = \"block\";\n  return console.log(event.id);\n}\n\nfunction closeForm(event) {\n  (0,_utilities__WEBPACK_IMPORTED_MODULE_0__.$)(\"#myForm\").style.display = \"none\";\n  return console.log(event.id);\n}\n\n\n\n\n//# sourceURL=webpack://todo-list/./src/components/form-popup.js?");
+
+/***/ }),
+
+/***/ "./src/components/project.js":
+/*!***********************************!*\
+  !*** ./src/components/project.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Project {\r\n  constructor(title) {\r\n    this.title = title;\r\n    this.todoArray = [];\r\n  }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Project);\r\n\n\n//# sourceURL=webpack://todo-list/./src/components/project.js?");
+
+/***/ }),
+
+/***/ "./src/components/utilities.js":
+/*!*************************************!*\
+  !*** ./src/components/utilities.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"$\": () => (/* binding */ $),\n/* harmony export */   \"$$\": () => (/* binding */ $$)\n/* harmony export */ });\nconst $ = (elementSelector) => document.querySelector(elementSelector);\nconst $$ = (elementSelector) => document.querySelectorAll(elementSelector);\n\n\n\n\n//# sourceURL=webpack://todo-list/./src/components/utilities.js?");
+
+/***/ }),
+
+/***/ "./src/dom/add-project-dom.js":
+/*!************************************!*\
+  !*** ./src/dom/add-project-dom.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst addProjectToDom = (Project = {}, index = Number()) => {\n  let newProject = `<li id='project-${index}'>${Project.title}</li>`;\n\n  $(\".project-info-list\").innerHTML += newProject;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addProjectToDom);\n\n\n//# sourceURL=webpack://todo-list/./src/dom/add-project-dom.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -113,7 +157,7 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n\r\n\r\n\r\n\r\nconsole.log(\"hola\");\r\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var _dom_add_project_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dom/add-project-dom */ \"./src/dom/add-project-dom.js\");\n/* harmony import */ var _components_project__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/project */ \"./src/components/project.js\");\n/* harmony import */ var _components_form_popup_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/form-popup.js */ \"./src/components/form-popup.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nlet projectsArray = [new _components_project__WEBPACK_IMPORTED_MODULE_4__.default(\"Sample Project\")];\r\n\r\nprojectsArray.forEach((project, index) => (0,_dom_add_project_dom__WEBPACK_IMPORTED_MODULE_3__.default)(project, index));\r\n\r\nwindow.openForm = _components_form_popup_js__WEBPACK_IMPORTED_MODULE_5__.openForm;\r\nwindow.closeForm = _components_form_popup_js__WEBPACK_IMPORTED_MODULE_5__.closeForm;\r\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
 
 /***/ })
 

@@ -14,15 +14,21 @@
               <h1>Project Title</h1>
             </div>
             <div class="col-3 project-new-btn">
-              <button class="btn btn-primary">Add</button>
+              <button
+                id="project-form"
+                class="open-button btn btn-primary"
+                onclick="openForm(this)"
+              >
+                New Project
+              </button>
+
+              <div class="form-popup" id="myForm">
+                <form action=""></form>
+              </div>
             </div>
           </div>
           <div class="col-12 project-list">
-            <ul class="project-info-list">
-              <li>Project 1</li>
-              <li>Project 2</li>
-              <li>Project 3</li>
-            </ul>
+            <ul class="project-info-list"></ul>
           </div>
         </div>
         <div class="col-6 todos-container">
