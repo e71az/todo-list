@@ -19,14 +19,21 @@ function addAllProjects() {
 
 function addProject() {
   let data = $(".form-add-project").serializeArray();
-  let newIdData =
-    projectsArray.length === 1
-      ? 1
-      : projectsArray[projectsArray.length - 1].id + 1;
 
-  console.log(newIdData);
-  projectsArray.push(new Project(newIdData, data[0].value));
-  addAllProjects();
+  if (data[0].value === "") {
+    alert("Title is blank, please insert a valid title.");
+    $(".form-add-project").trigger("reset");
+  } else {
+    let newIdData =
+      projectsArray.length === 1
+        ? 1
+        : projectsArray[projectsArray.length - 1].id + 1;
+
+    console.log(newIdData);
+
+    projectsArray.push(new Project(newIdData, data[0].value));
+    addAllProjects();
+  }
 }
 
 window.addProject = addProject;
