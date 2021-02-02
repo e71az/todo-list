@@ -2,7 +2,6 @@ import $ from "jquery";
 
 function openForm() {
   $("#myForm").removeClass("d-none");
-  return console.log(event.id);
 }
 
 function closeForm() {

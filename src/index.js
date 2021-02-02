@@ -2,35 +2,41 @@ import "./styles.css";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import addProjectToDom from "./dom/add-project-dom";
+import addTodoToDom from "./dom/add-todo-dom";
 import Project from "./components/project";
 import ToDo from "./components/todo";
 import { openForm, closeForm } from "./components/form-popup.js";
 import { openTodoForm, closeTodoForm } from "./components/form-popup-todo.js";
-
 import $ from "jquery";
-import addTodoItemDom from "./dom/add-todo-dom";
 
 let projectsArray = [new Project(0, "Sample Project")];
-let newToDo = new ToDo(0, "Sample ToDo", "Todo Description", "1/1/2020", "low");
-
-addAllProjects();
+let todosArray = [
+  new ToDo(0, "Todo Title", "Todo Description", "1/1/2020", "low"),
+];
 let activeProject = 0;
 
-projectsArray[0].todoArray.push(newToDo);
+// let newToDo = new ToDo(0, "Sample ToDo", "Todo Description", "1/1/2020", "low");
+// projectsArray[0].todoArray.push(newToDo);
+
+addAllProjects();
+addAllTodos();
+
+// TODO: Add this to a function
 
 displayAllTodos();
-
-function displayAllTodos() {
-  projectsArray[activeProject].todoArray.forEach((todo) => {
-    addTodoItemDom(todo);
-  });
-}
 
 function addAllProjects() {
   $(".project-info-list").empty();
   projectsArray.forEach((project) => addProjectToDom(project));
   closeForm();
   console.log(projectsArray);
+}
+
+function addAllTodos() {
+  $(".todo-info-list").empty();
+  todosArray.forEach((todo) => addTodoToDom(todo));
+  closeTodoForm();
+  console.log(todosArray);
 }
 
 function addProject() {
@@ -52,7 +58,18 @@ function addProject() {
   }
 }
 
+// function addTodo() {
+//   let data = $(".form-add-todo");
+// }
+
+// function displayAllTodos() {
+//   projectsArray[activeProject].todoArray.forEach((todo) => {
+//     addTodoItemDom(todo);
+//   });
+// }
+
 window.addProject = addProject;
+window.addTodo = addTodo;
 window.openForm = openForm;
 window.closeForm = closeForm;
 window.openTodoForm = openTodoForm;

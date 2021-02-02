@@ -7,7 +7,7 @@ class ToDo {
     this.priority = priority;
   }
 
-  createToDo() {}
+  // createToDo() {}
 }
 
 export default ToDo;
