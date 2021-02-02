@@ -11,7 +11,7 @@ import $ from "jquery";
 
 let projectsArray = [new Project(0, "Sample Project")];
 let todosArray = [
-  new ToDo(0, "Todo Title", "Todo Description", "1/1/2020", "low"),
+  new ToDo(0, "Todo Title", "Todo Description", "2021-02-17", "low"),
 ];
 let activeProject = 0;
 
@@ -23,7 +23,7 @@ addAllTodos();
 
 // TODO: Add this to a function
 
-displayAllTodos();
+// displayAllTodos();
 
 function addAllProjects() {
   $(".project-info-list").empty();
@@ -58,9 +58,27 @@ function addProject() {
   }
 }
 
-// function addTodo() {
-//   let data = $(".form-add-todo");
-// }
+function addTodo() {
+  let data = $(".form-add-todo").serializeArray();
+  if (data[0].value === "" || data[2].value === "") {
+    alert("Todo title or date are empty, please insert valid data");
+    $(".form-add-todo").trigger("reset");
+  } else {
+    let newIdData =
+      todosArray.length === 1 ? 1 : todosArray[projectsArray.length - 1].id + 1;
+    console.log(newIdData);
+    todosArray.push(
+      new ToDo(
+        newIdData,
+        data[0].value,
+        data[1].value,
+        data[2].value,
+        data[3].value
+      )
+    );
+    addAllTodos();
+  }
+}
 
 // function displayAllTodos() {
 //   projectsArray[activeProject].todoArray.forEach((todo) => {
