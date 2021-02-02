@@ -3,12 +3,28 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import addProjectToDom from "./dom/add-project-dom";
 import Project from "./components/project";
+import ToDo from "./components/todo";
 import { openForm, closeForm } from "./components/form-popup.js";
+import { openTodoForm, closeTodoForm } from "./components/form-popup-todo.js";
+
 import $ from "jquery";
+import addTodoItemDom from "./dom/add-todo-dom";
 
 let projectsArray = [new Project(0, "Sample Project")];
+let newToDo = new ToDo(0, "Sample ToDo", "Todo Description", "1/1/2020", "low");
 
 addAllProjects();
+let activeProject = 0;
+
+projectsArray[0].todoArray.push(newToDo);
+
+displayAllTodos();
+
+function displayAllTodos() {
+  projectsArray[activeProject].todoArray.forEach((todo) => {
+    addTodoItemDom(todo);
+  });
+}
 
 function addAllProjects() {
   $(".project-info-list").empty();
@@ -39,3 +55,5 @@ function addProject() {
 window.addProject = addProject;
 window.openForm = openForm;
 window.closeForm = closeForm;
+window.openTodoForm = openTodoForm;
+window.closeTodoForm = closeTodoForm;

@@ -17,7 +17,7 @@
               <button
                 id="project-form"
                 class="open-button btn btn-primary"
-                onclick="openForm(this)"
+                onclick="openForm()"
               >
                 New Project
               </button>
@@ -61,15 +61,61 @@
               <h1>Project Title</h1>
             </div>
             <div class="col-3 todo-new-btn">
-              <button class="btn btn-primary">Add</button>
+              <button
+                id="todo-form"
+                class="open-button btn btn-primary"
+                onclick="openTodoForm()"
+              >
+                New Project
+              </button>
+
+              <div class="form-popup d-none" id="todoForm">
+                <form
+                  class="form-container form-add-todo"
+                  action="#"
+                  novalidate
+                >
+                  <h1>Create a new todo</h1>
+                  <label for="todo-title">Todo Title</label>
+                  <input
+                    type="text"
+                    placeholder="Enter the todo title"
+                    name="todo-title"
+                    required
+                  />
+
+                  <label for="todo-description">Todo Description</label>
+                  <input
+                    type="text"
+                    placeholder="Enter the todo description"
+                    name="todo-description"
+                    required
+                  />
+
+                  <label for="todo-description">Todo Description</label>
+                  <input
+                    type="text"
+                    placeholder="Enter the todo description"
+                    name="todo-description"
+                    required
+                  />
+
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    onclick="addProject()"
+                  >
+                    Create
+                  </button>
+                  <button class="btn btn-danger" onclick="closeTodoForm()">
+                    Cancel
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
           <div class="col-12 todo-info">
-            <ul class="todo-info-list">
-              <li>Todo 1</li>
-              <li>Todo 2</li>
-              <li>Todo 3</li>
-            </ul>
+            <ul class="todo-info-list"></ul>
           </div>
         </div>
       </div>

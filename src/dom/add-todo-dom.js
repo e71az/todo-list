@@ -1,10 +1,12 @@
-const addTodoItemDom = (ToDo = {}, index) => {
-  let newTodo = `<div todoItem='item-${objTodo.title}-${index}' class='d-flex justify-content-between'>
-  <div>${objTodo.title}</div>
-  <div>${objTodo.description}</div>
-  <div>${objTodo.priority}</div>
-  <div>${objTodo.dueDate}</div>
-  </div>`;
+import $ from "jquery";
+
+const addTodoItemDom = (ToDo = {}) => {
+  let newTodo = `<li todoItem='todo-${ToDo.id}' class='d-flex justify-content-between'>
+  <span>${ToDo.title}</span>
+  <span>${ToDo.description}</span>
+  <span>${ToDo.priority}</span>
+  <span>${ToDo.dueDate}</span>
+  </li>`;
 
   $(".todo-info-list").append(newTodo);
 };

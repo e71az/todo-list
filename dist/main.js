@@ -106,6 +106,17 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 
 /***/ }),
 
+/***/ "./src/components/form-popup-todo.js":
+/*!*******************************************!*\
+  !*** ./src/components/form-popup-todo.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"openTodoForm\": () => (/* binding */ openTodoForm),\n/* harmony export */   \"closeTodoForm\": () => (/* binding */ closeTodoForm)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\n\nfunction openTodoForm() {\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#todoForm\").removeClass(\"d-none\");\n}\n\nfunction closeTodoForm() {\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#todoForm\").on(\"click\", function (event) {\n    event.preventDefault();\n    event.isDefaultPrevented();\n  });\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#todoForm\").addClass(\"d-none\");\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".form-container\").trigger(\"reset\");\n}\n\n\n\n\n//# sourceURL=webpack://todo-list/./src/components/form-popup-todo.js?");
+
+/***/ }),
+
 /***/ "./src/components/form-popup.js":
 /*!**************************************!*\
   !*** ./src/components/form-popup.js ***!
@@ -113,7 +124,7 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"openForm\": () => (/* binding */ openForm),\n/* harmony export */   \"closeForm\": () => (/* binding */ closeForm)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nfunction openForm(event) {\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#myForm\").removeClass(\"d-none\");\r\n  return console.log(event.id);\r\n}\r\n\r\nfunction closeForm() {\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#myForm\").addClass(\"d-none\");\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".form-container\").trigger(\"reset\");\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack://todo-list/./src/components/form-popup.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"openForm\": () => (/* binding */ openForm),\n/* harmony export */   \"closeForm\": () => (/* binding */ closeForm)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nfunction openForm() {\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#myForm\").removeClass(\"d-none\");\r\n  return console.log(event.id);\r\n}\r\n\r\nfunction closeForm() {\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#myForm\").on(\"click\", function (event) {\r\n    event.preventDefault();\r\n    event.isDefaultPrevented();\r\n  });\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#myForm\").addClass(\"d-none\");\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".form-container\").trigger(\"reset\");\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack://todo-list/./src/components/form-popup.js?");
 
 /***/ }),
 
@@ -128,6 +139,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/components/todo.js":
+/*!********************************!*\
+  !*** ./src/components/todo.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass ToDo {\r\n  constructor(id, title, description, dueDate, priority) {\r\n    this.id = id;\r\n    this.title = title;\r\n    this.description = description;\r\n    this.dueDate = dueDate;\r\n    this.priority = priority;\r\n  }\r\n\r\n  createToDo() {}\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ToDo);\r\n\n\n//# sourceURL=webpack://todo-list/./src/components/todo.js?");
+
+/***/ }),
+
 /***/ "./src/dom/add-project-dom.js":
 /*!************************************!*\
   !*** ./src/dom/add-project-dom.js ***!
@@ -139,6 +161,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/dom/add-todo-dom.js":
+/*!*********************************!*\
+  !*** ./src/dom/add-todo-dom.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst addTodoItemDom = (ToDo = {}) => {\n  let newTodo = `<li todoItem='todo-${ToDo.id}' class='d-flex justify-content-between'>\n  <span>${ToDo.title}</span>\n  <span>${ToDo.description}</span>\n  <span>${ToDo.priority}</span>\n  <span>${ToDo.dueDate}</span>\n  </li>`;\n\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".todo-info-list\").append(newTodo);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addTodoItemDom);\n\n\n//# sourceURL=webpack://todo-list/./src/dom/add-todo-dom.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -146,7 +179,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var _dom_add_project_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dom/add-project-dom */ \"./src/dom/add-project-dom.js\");\n/* harmony import */ var _components_project__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/project */ \"./src/components/project.js\");\n/* harmony import */ var _components_form_popup_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/form-popup.js */ \"./src/components/form-popup.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_6__);\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nlet projectsArray = [new _components_project__WEBPACK_IMPORTED_MODULE_4__.default(0, \"Sample Project\")];\r\n\r\naddAllProjects();\r\n\r\nfunction addAllProjects() {\r\n  jquery__WEBPACK_IMPORTED_MODULE_6___default()(\".project-info-list\").empty();\r\n  projectsArray.forEach((project) => (0,_dom_add_project_dom__WEBPACK_IMPORTED_MODULE_3__.default)(project));\r\n  (0,_components_form_popup_js__WEBPACK_IMPORTED_MODULE_5__.closeForm)();\r\n  console.log(projectsArray);\r\n}\r\n\r\nfunction addProject() {\r\n  let data = jquery__WEBPACK_IMPORTED_MODULE_6___default()(\".form-add-project\").serializeArray();\r\n\r\n  if (data[0].value === \"\") {\r\n    alert(\"Title is blank, please insert a valid title.\");\r\n    jquery__WEBPACK_IMPORTED_MODULE_6___default()(\".form-add-project\").trigger(\"reset\");\r\n  } else {\r\n    let newIdData =\r\n      projectsArray.length === 1\r\n        ? 1\r\n        : projectsArray[projectsArray.length - 1].id + 1;\r\n\r\n    console.log(newIdData);\r\n\r\n    projectsArray.push(new _components_project__WEBPACK_IMPORTED_MODULE_4__.default(newIdData, data[0].value));\r\n    addAllProjects();\r\n  }\r\n}\r\n\r\nwindow.addProject = addProject;\r\nwindow.openForm = _components_form_popup_js__WEBPACK_IMPORTED_MODULE_5__.openForm;\r\nwindow.closeForm = _components_form_popup_js__WEBPACK_IMPORTED_MODULE_5__.closeForm;\r\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var _dom_add_project_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dom/add-project-dom */ \"./src/dom/add-project-dom.js\");\n/* harmony import */ var _components_project__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/project */ \"./src/components/project.js\");\n/* harmony import */ var _components_todo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/todo */ \"./src/components/todo.js\");\n/* harmony import */ var _components_form_popup_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/form-popup.js */ \"./src/components/form-popup.js\");\n/* harmony import */ var _components_form_popup_todo_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/form-popup-todo.js */ \"./src/components/form-popup-todo.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_8__);\n/* harmony import */ var _dom_add_todo_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dom/add-todo-dom */ \"./src/dom/add-todo-dom.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nlet projectsArray = [new _components_project__WEBPACK_IMPORTED_MODULE_4__.default(0, \"Sample Project\")];\r\nlet newToDo = new _components_todo__WEBPACK_IMPORTED_MODULE_5__.default(0, \"Sample ToDo\", \"Todo Description\", \"1/1/2020\", \"low\");\r\n\r\naddAllProjects();\r\nlet activeProject = 0;\r\n\r\nprojectsArray[0].todoArray.push(newToDo);\r\n\r\ndisplayAllTodos();\r\n\r\nfunction displayAllTodos() {\r\n  projectsArray[activeProject].todoArray.forEach((todo) => {\r\n    (0,_dom_add_todo_dom__WEBPACK_IMPORTED_MODULE_9__.default)(todo);\r\n  });\r\n}\r\n\r\nfunction addAllProjects() {\r\n  jquery__WEBPACK_IMPORTED_MODULE_8___default()(\".project-info-list\").empty();\r\n  projectsArray.forEach((project) => (0,_dom_add_project_dom__WEBPACK_IMPORTED_MODULE_3__.default)(project));\r\n  (0,_components_form_popup_js__WEBPACK_IMPORTED_MODULE_6__.closeForm)();\r\n  console.log(projectsArray);\r\n}\r\n\r\nfunction addProject() {\r\n  let data = jquery__WEBPACK_IMPORTED_MODULE_8___default()(\".form-add-project\").serializeArray();\r\n\r\n  if (data[0].value === \"\") {\r\n    alert(\"Title is blank, please insert a valid title.\");\r\n    jquery__WEBPACK_IMPORTED_MODULE_8___default()(\".form-add-project\").trigger(\"reset\");\r\n  } else {\r\n    let newIdData =\r\n      projectsArray.length === 1\r\n        ? 1\r\n        : projectsArray[projectsArray.length - 1].id + 1;\r\n\r\n    console.log(newIdData);\r\n\r\n    projectsArray.push(new _components_project__WEBPACK_IMPORTED_MODULE_4__.default(newIdData, data[0].value));\r\n    addAllProjects();\r\n  }\r\n}\r\n\r\nwindow.addProject = addProject;\r\nwindow.openForm = _components_form_popup_js__WEBPACK_IMPORTED_MODULE_6__.openForm;\r\nwindow.closeForm = _components_form_popup_js__WEBPACK_IMPORTED_MODULE_6__.closeForm;\r\nwindow.openTodoForm = _components_form_popup_todo_js__WEBPACK_IMPORTED_MODULE_7__.openTodoForm;\r\nwindow.closeTodoForm = _components_form_popup_todo_js__WEBPACK_IMPORTED_MODULE_7__.closeTodoForm;\r\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
 
 /***/ })
 
