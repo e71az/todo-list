@@ -63,7 +63,8 @@ function addProject() {
 
 function addTodo() {
   let data = $(".form-add-todo").serializeArray();
-  if (data[0].value === "" || data[2].value === "") {
+  let [title, description, dueDate, priority] = data;
+  if (!title.value || !dueDate.value) {
     alert("Todo title or date are empty, please insert valid data");
     $(".form-add-todo").trigger("reset");
   } else {
@@ -88,6 +89,15 @@ function setActiveProject(identifier) {
   $(`#project-${identifier}`).addClass("active");
 }
 
+function getActiveProject() {
+  let activeNodeId = $(".project-info-list .active").attr("id");
+  activeNodeId = activeNodeId.match(/\d+/);
+  activeNodeId = activeNodeId[0];
+  activeNodeId = parseInt(activeNodeId); // This is an int
+  return activeNodeId;
+}
+
+getActiveProject();
 // function displayAllTodos() {
 //   projectsArray[activeProject].todoArray.forEach((todo) => {
 //     addTodoItemDom(todo);
