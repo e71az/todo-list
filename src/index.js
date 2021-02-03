@@ -14,14 +14,17 @@ let projectsArray = [
     new ToDo(0, "Todo Title", "Todo Description", "2021-02-17", "low"),
   ]),
 ];
-let todosArray = [];
+// let todosArray = [];
 
 addAllProjects();
 setActiveProject(projectsArray[0].id);
+
 // addAllTodos();
 
 function addAllProjects() {
   $(".project-info-list").empty();
+  $(".todo-info-list").empty();
+
   projectsArray.forEach((project) => {
     addProjectToDom(project);
     // addTodoToDom(project.todoArray[0]);
@@ -30,7 +33,7 @@ function addAllProjects() {
     project.todoArray.forEach((todo) => addTodoToDom(todo));
   });
   // projectsArray[3].forEach((todo) => addTodoToDom(todo));
-  closeForm();
+
   console.log(projectsArray);
 }
 
@@ -49,15 +52,17 @@ function addProject() {
     alert("Title is blank, please insert a valid title.");
     $(".form-add-project").trigger("reset");
   } else {
-    let newIdData =
+    let newProjectId =
       projectsArray.length === 1
         ? 1
         : projectsArray[projectsArray.length - 1].id + 1;
 
-    console.log(newIdData);
+    console.log(newProjectId);
 
-    projectsArray.push(new Project(newIdData, data[0].value));
+    projectsArray.push(new Project(newProjectId, data[0].value));
     addAllProjects();
+    setActiveProject(newProjectId);
+    closeForm();
   }
 }
 
@@ -66,21 +71,34 @@ function addTodo() {
   let [title, description, dueDate, priority] = data;
   if (!title.value || !dueDate.value) {
     alert("Todo title or date are empty, please insert valid data");
-    $(".form-add-todo").trigger("reset");
+    // $(".form-add-todo").trigger("reset");
   } else {
-    let newIdData =
-      todosArray.length === 1 ? 1 : todosArray[projectsArray.length - 1].id + 1;
-    console.log(newIdData);
+    debugger;
+    let projectId = getActiveProject();
+    let todosArray = projectsArray[projectId].todoArray;
+    let lastTodoPosition = todosArray.length - 1 || 0;
+    let lastTodo = todosArray[lastTodoPosition];
+
+    // console.log(projectsArray);
+
+    let newTodoId = todosArray.length === 0 ? 0 : lastTodo.id + 1;
+    console.log(newTodoId);
+
     todosArray.push(
       new ToDo(
-        newIdData,
-        data[0].value,
-        data[1].value,
-        data[2].value,
-        data[3].value
+        newTodoId,
+        title.value,
+        description.value,
+        dueDate.value,
+        priority.value
       )
     );
-    addAllTodos();
+    addAllProjects();
+    setActiveProject(projectId);
+    $(".form-add-todo").trigger("reset");
+    closeTodoForm();
+
+    // addAllTodos();
   }
 }
 
@@ -97,7 +115,6 @@ function getActiveProject() {
   return activeNodeId;
 }
 
-getActiveProject();
 // function displayAllTodos() {
 //   projectsArray[activeProject].todoArray.forEach((todo) => {
 //     addTodoItemDom(todo);
@@ -107,6 +124,6 @@ getActiveProject();
 window.addProject = addProject;
 window.addTodo = addTodo;
 window.openForm = openForm;
-window.closeForm = closeForm;
+window.closeForm = closeForm; //TODO change this to something more descriptive
 window.openTodoForm = openTodoForm;
 window.closeTodoForm = closeTodoForm;
