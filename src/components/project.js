@@ -1,9 +1,13 @@
 class Project {
-  constructor(id, title) {
+  constructor(id, title, todoArray = []) {
     this.id = id;
     this.title = title;
-    this.todoArray = [];
+    this.todoArray = todoArray;
   }
+
+  // deleteProject() {
+  //   this.pop();
+  // }
 }
 
 export default Project;

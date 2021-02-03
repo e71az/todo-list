@@ -9,35 +9,38 @@ import { openForm, closeForm } from "./components/form-popup.js";
 import { openTodoForm, closeTodoForm } from "./components/form-popup-todo.js";
 import $ from "jquery";
 
-let projectsArray = [new Project(0, "Sample Project")];
-let todosArray = [
-  new ToDo(0, "Todo Title", "Todo Description", "2021-02-17", "low"),
+let projectsArray = [
+  new Project(0, "Sample Project", [
+    new ToDo(0, "Todo Title", "Todo Description", "2021-02-17", "low"),
+  ]),
 ];
-let activeProject = 0;
-
-// let newToDo = new ToDo(0, "Sample ToDo", "Todo Description", "1/1/2020", "low");
-// projectsArray[0].todoArray.push(newToDo);
+let todosArray = [];
 
 addAllProjects();
-addAllTodos();
-
-// TODO: Add this to a function
-
-// displayAllTodos();
+setActiveProject(projectsArray[0].id);
+// addAllTodos();
 
 function addAllProjects() {
   $(".project-info-list").empty();
-  projectsArray.forEach((project) => addProjectToDom(project));
+  projectsArray.forEach((project) => {
+    addProjectToDom(project);
+    // addTodoToDom(project.todoArray[0]);
+    // project.addTodoToDom(project[3]);
+    console.log(project);
+    project.todoArray.forEach((todo) => addTodoToDom(todo));
+  });
+  // projectsArray[3].forEach((todo) => addTodoToDom(todo));
   closeForm();
   console.log(projectsArray);
 }
 
-function addAllTodos() {
-  $(".todo-info-list").empty();
-  todosArray.forEach((todo) => addTodoToDom(todo));
-  closeTodoForm();
-  console.log(todosArray);
-}
+// function addAllTodos() {
+//   // $(".todo-info-list").empty();
+//   todosArray.forEach((todo) => addTodoToDom(todo));
+//   closeTodoForm();
+//   projectsArray[0].todoArray.push(todosArray);
+//   console.log(todosArray);
+// }
 
 function addProject() {
   let data = $(".form-add-project").serializeArray();
@@ -78,6 +81,11 @@ function addTodo() {
     );
     addAllTodos();
   }
+}
+
+// TODO: Move this to the dom folder
+function setActiveProject(identifier) {
+  $(`#project-${identifier}`).addClass("active");
 }
 
 // function displayAllTodos() {
