@@ -118,6 +118,8 @@ function deleteTodo() {
   activeNode.remove();
 }
 
+function showTodoInfo(identifier) {}
+
 window.addProject = addProject;
 window.addTodo = addTodo;
 window.openForm = openForm;
