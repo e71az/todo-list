@@ -4,10 +4,6 @@ class Project {
     this.title = title;
     this.todoArray = todoArray;
   }
-
-  // deleteProject() {
-  //   this.pop();
-  // }
 }
 
 export default Project;

@@ -8,16 +8,17 @@ import ToDo from "./components/todo";
 import { openForm, closeForm } from "./components/form-popup.js";
 import { openTodoForm, closeTodoForm } from "./components/form-popup-todo.js";
 import $ from "jquery";
+// import "./components/lit-html";
 
 let projectsArray = [
   new Project(0, "Sample Project", [
     new ToDo(0, "Todo Title", "Todo Description", "2021-02-17", "low"),
   ]),
 ];
-let activeProject = 0;
 
 addAllProjects();
 setActiveProject(projectsArray[0].id);
+// console.log(projectsArray);
 
 function addAllProjects() {
   $(".project-info-list").empty();
@@ -113,12 +114,18 @@ function getActiveProject() {
   return activeNode;
 }
 
-function deleteTodo() {
-  let activeNode = getActiveProject();
-  activeNode.remove();
+function deleteTodo(identifier) {
+  let project = projectsArray[getActiveProjectId()];
+  project.todoArray = project.todoArray.filter(
+    (todo) => todo.id !== identifier
+  );
+  renderTodos();
+  console.log("ran");
+  console.log(project.todoArray);
+  console.log(projectsArray);
 }
 
-function showTodoInfo(identifier) {}
+// function showTodoInfo(identifier) {}
 
 window.addProject = addProject;
 window.addTodo = addTodo;
@@ -129,3 +136,4 @@ window.closeTodoForm = closeTodoForm;
 window.getActiveProject = getActiveProject;
 window.setActiveProject = setActiveProject;
 window.getActiveProjectId = getActiveProjectId;
+window.deleteTodo = deleteTodo;

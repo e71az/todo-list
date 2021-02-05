@@ -6,8 +6,6 @@ class ToDo {
     this.dueDate = dueDate;
     this.priority = priority;
   }
-
-  // createToDo() {}
 }
 
 export default ToDo;
