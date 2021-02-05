@@ -7,18 +7,38 @@ import Project from "./components/project";
 import ToDo from "./components/todo";
 import { openForm, closeForm } from "./components/form-popup.js";
 import { openTodoForm, closeTodoForm } from "./components/form-popup-todo.js";
+import {
+  openTodoEditForm,
+  closeTodoEditForm,
+} from "./components/form-popup-edit-todo.js";
 import $ from "jquery";
-// import "./components/lit-html";
+import html from "./components/lit-html";
+
+window.addProject = addProject;
+window.addTodo = addTodo;
+window.overwriteTodo = overwriteTodo;
+window.openForm = openForm;
+window.closeForm = closeForm; //TODO change this to something more descriptive
+window.openTodoEditForm = openTodoEditForm;
+window.closeTodoEditForm = closeTodoEditForm;
+window.openTodoForm = openTodoForm;
+window.closeTodoForm = closeTodoForm;
+window.getActiveProject = getActiveProject;
+window.setActiveProject = setActiveProject;
+window.getActiveProjectId = getActiveProjectId;
+window.deleteTodo = deleteTodo;
+window.editTodo = editTodo;
+window.html = html;
 
 let projectsArray = [
   new Project(0, "Sample Project", [
     new ToDo(0, "Todo Title", "Todo Description", "2021-02-17", "low"),
   ]),
 ];
+let currentTodo = Number;
 
 addAllProjects();
 setActiveProject(projectsArray[0].id);
-// console.log(projectsArray);
 
 function addAllProjects() {
   $(".project-info-list").empty();
@@ -127,13 +147,58 @@ function deleteTodo(identifier) {
 
 // function showTodoInfo(identifier) {}
 
-window.addProject = addProject;
-window.addTodo = addTodo;
-window.openForm = openForm;
-window.closeForm = closeForm; //TODO change this to something more descriptive
-window.openTodoForm = openTodoForm;
-window.closeTodoForm = closeTodoForm;
-window.getActiveProject = getActiveProject;
-window.setActiveProject = setActiveProject;
-window.getActiveProjectId = getActiveProjectId;
-window.deleteTodo = deleteTodo;
+function editTodo(identifier) {
+  currentTodo = identifier;
+  // debugger;
+  let form = $(".form-add-todo");
+  let todo = projectsArray[getActiveProjectId()].todoArray[identifier];
+
+  openTodoEditForm();
+
+  getTodoFormValue("input", "title").val(todo.title);
+  getTodoFormValue("input", "description").val(todo.description);
+  getTodoFormValue("input", "duedate").val(todo.dueDate);
+  // getTodoFormValue("input", "duedate").attr("placeholder", "oli");
+  getTodoFormValue("select", "priority").val(todo.priority);
+
+  // description.value = todo.description;
+  // dueDate.value = todo.dueDate;
+  // priority.value = todo.priority;
+
+  // console.log(form);
+  // console.log(todo);
+  // console.log(getTodoFormValue("input", "dueDate"));
+}
+
+function overwriteTodo() {
+  let data = $(".form-edit-todo").serializeArray();
+  let [title, description, dueDate, priority] = data;
+  if (!title.value || !dueDate.value) {
+    alert("Todo title or date are empty, please insert valid data");
+  } else {
+    // debugger;
+    let projectId = getActiveProjectId();
+    console.log(projectId);
+    let todosArray = projectsArray[projectId].todoArray;
+    // let lastTodoPosition = todosArray.length - 1 || 0;
+    // let lastTodo = todosArray[lastTodoPosition];
+    // let newTodoId = todosArray.length === 0 ? 0 : lastTodo.id + 1;
+    // console.log(newTodoId);
+
+    todosArray[currentTodo] = new ToDo(
+      currentTodo,
+      title.value,
+      description.value,
+      dueDate.value,
+      priority.value
+    );
+    addAllProjects();
+    setActiveProject(projectId);
+    $(".form-edit-todo").trigger("reset");
+    closeTodoEditForm();
+  }
+}
+
+function getTodoFormValue(tag, name) {
+  return $(`.form-edit-todo ${tag}[name='todo-edit-${name}']`);
+}

@@ -1,6 +1,8 @@
-// function html(arg) {
-//   return arg;
-// }
+function html(template, ...values) {
+  return template.reduce(
+    (html, string) => html.trim() + string.trim() + (values.shift() || ""),
+    ""
+  );
+}
 
-// window.html = html;
-// export default html;
+export default html;

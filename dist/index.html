@@ -114,6 +114,64 @@
                   </button>
                 </form>
               </div>
+
+              <div class="form-popup d-none" id="todoEditForm">
+                <form
+                  class="form-container form-edit-todo"
+                  action="#"
+                  novalidate
+                >
+                  <h1>Edit your todo</h1>
+                  <label for="todo-edit-title">Todo Title</label>
+                  <input
+                    type="text"
+                    placeholder="Enter the todo title"
+                    name="todo-edit-title"
+                    required
+                  />
+
+                  <label for="todo-edit-description">Todo Description</label>
+                  <input
+                    type="text"
+                    placeholder="Enter the todo description"
+                    name="todo-edit-description"
+                    required
+                  />
+
+                  <label for="todo-edit-duedate">Due Date</label>
+                  <input
+                    type="date"
+                    id="todo-edit-duedate"
+                    name="todo-edit-duedate"
+                  />
+                  <!-- <input
+                    name="todo-edit-duedate"
+                    placeholder="Date"
+                    class="textbox-n"
+                    type="text"
+                    onfocus="(this.type='date')"
+                    id="date"
+                  /> -->
+
+                  <label for="todo-edit-priority">ToDo Priority</label>
+                  <select name="todo-edit-priority" id="todo-edit-priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    onclick="overwriteTodo()"
+                  >
+                    Save Changes
+                  </button>
+                  <button class="btn btn-danger" onclick="closeTodoEditForm()">
+                    Cancel
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
           <div class="col-12 todo-info">
