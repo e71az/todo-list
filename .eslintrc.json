@@ -5,15 +5,15 @@
     "browser": true
   },
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2021,
     "sourceType": "module"
   },
   "extends": [
     "eslint:recommended",
     "plugin:prettier/recommended"
-  ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  }
+  ]
+  // "globals": {
+  //   "Atomics": "readonly",
+  //   "SharedArrayBuffer": "readonly"
+  // }
 }

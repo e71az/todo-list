@@ -30,13 +30,34 @@ window.deleteTodo = deleteTodo;
 window.editTodo = editTodo;
 window.html = html;
 
-let projectsArray = [
-  new Project(0, "Sample Project", [
-    new ToDo(0, "Todo Title", "Todo Description", "2021-02-17", "low"),
-  ]),
-];
+let projectsArray = [];
 let currentTodo = Number;
 
+function getProjectsArray() {
+  if ("projectsArray" in window.localStorage) {
+    projectsArray = JSON.parse(window.localStorage.getItem("projectsArray"));
+
+    console.log("array set to existing one");
+    console.log(projectsArray);
+  } else {
+    projectsArray = [
+      new Project(0, "Sample Project", [
+        new ToDo(0, "Todo Title", "Todo Description", "2021-02-17", "low"),
+      ]),
+    ];
+    console.log("default created");
+    console.log(projectsArray);
+
+    setProjectsArray();
+  }
+}
+
+function setProjectsArray() {
+  window.localStorage.setItem("projectsArray", JSON.stringify(projectsArray));
+}
+
+// console.log(projectsArray2);
+getProjectsArray();
 addAllProjects();
 setActiveProject(projectsArray[0].id);
 
@@ -47,20 +68,25 @@ function addAllProjects() {
   projectsArray.forEach((project) => {
     addProjectToDom(project);
 
-    console.log(project);
+    // console.log(project);
     project.todoArray.forEach((todo) => addTodoToDom(todo));
   });
 
-  console.log(projectsArray);
+  // console.log(projectsArray);
+  setProjectsArray();
 }
 
 function renderTodos() {
+  // debugger;
+
   $(".todo-info-list").empty();
   let activeProject = getActiveProjectId();
   projectsArray[activeProject].todoArray.forEach((todo) => addTodoToDom(todo));
+  setProjectsArray();
 }
 
 function addProject() {
+  // debugger;
   let data = $(".form-add-project").serializeArray();
 
   if (data[0].value === "") {
@@ -72,12 +98,13 @@ function addProject() {
         ? 1
         : projectsArray[projectsArray.length - 1].id + 1;
 
-    console.log(newProjectId);
+    // console.log(newProjectId);
 
     projectsArray.push(new Project(newProjectId, data[0].value));
     addAllProjects();
     setActiveProject(newProjectId);
     closeForm();
+    setProjectsArray();
   }
 }
 
@@ -87,14 +114,14 @@ function addTodo() {
   if (!title.value || !dueDate.value) {
     alert("Todo title or date are empty, please insert valid data");
   } else {
-    debugger;
+    // debugger;
     let projectId = getActiveProjectId();
-    console.log(projectId);
+    // console.log(projectId);
     let todosArray = projectsArray[projectId].todoArray;
     let lastTodoPosition = todosArray.length - 1 || 0;
     let lastTodo = todosArray[lastTodoPosition];
     let newTodoId = todosArray.length === 0 ? 0 : lastTodo.id + 1;
-    console.log(newTodoId);
+    // console.log(newTodoId);
 
     todosArray.push(
       new ToDo(
@@ -109,6 +136,7 @@ function addTodo() {
     setActiveProject(projectId);
     $(".form-add-todo").trigger("reset");
     closeTodoForm();
+    setProjectsArray();
   }
 }
 
@@ -118,6 +146,7 @@ function setActiveProject(identifier) {
   activeProject.removeClass("active");
   $(`#project-${identifier}`).addClass("active");
   renderTodos();
+  setProjectsArray();
 }
 
 function getActiveProjectId() {
@@ -125,12 +154,14 @@ function getActiveProjectId() {
   activeNodeId = activeNodeId.match(/\d+/);
   activeNodeId = activeNodeId[0];
   activeNodeId = parseInt(activeNodeId);
-  console.log(activeNodeId);
+  // console.log(activeNodeId);
+  setProjectsArray();
   return activeNodeId;
 }
 
 function getActiveProject() {
   let activeNode = $(".project-info-list .active");
+  setProjectsArray();
   return activeNode;
 }
 
@@ -140,9 +171,10 @@ function deleteTodo(identifier) {
     (todo) => todo.id !== identifier
   );
   renderTodos();
-  console.log("ran");
-  console.log(project.todoArray);
-  console.log(projectsArray);
+  // console.log("ran");
+  // console.log(project.todoArray);
+  // console.log(projectsArray);
+  setProjectsArray();
 }
 
 // function showTodoInfo(identifier) {}
@@ -150,7 +182,6 @@ function deleteTodo(identifier) {
 function editTodo(identifier) {
   currentTodo = identifier;
   // debugger;
-  let form = $(".form-add-todo");
   let todo = projectsArray[getActiveProjectId()].todoArray[identifier];
 
   openTodoEditForm();
@@ -168,6 +199,7 @@ function editTodo(identifier) {
   // console.log(form);
   // console.log(todo);
   // console.log(getTodoFormValue("input", "dueDate"));
+  setProjectsArray();
 }
 
 function overwriteTodo() {
@@ -176,14 +208,9 @@ function overwriteTodo() {
   if (!title.value || !dueDate.value) {
     alert("Todo title or date are empty, please insert valid data");
   } else {
-    // debugger;
     let projectId = getActiveProjectId();
-    console.log(projectId);
+
     let todosArray = projectsArray[projectId].todoArray;
-    // let lastTodoPosition = todosArray.length - 1 || 0;
-    // let lastTodo = todosArray[lastTodoPosition];
-    // let newTodoId = todosArray.length === 0 ? 0 : lastTodo.id + 1;
-    // console.log(newTodoId);
 
     todosArray[currentTodo] = new ToDo(
       currentTodo,
@@ -196,6 +223,7 @@ function overwriteTodo() {
     setActiveProject(projectId);
     $(".form-edit-todo").trigger("reset");
     closeTodoEditForm();
+    setProjectsArray();
   }
 }
 
