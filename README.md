@@ -8,7 +8,7 @@ First install dependencies:
 
 ```sh
 npm install
-```s
+```
 
 To create a production build:
 
